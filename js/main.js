@@ -1117,7 +1117,7 @@ gameData.requirements = {
     "Muscle memory": new TaskRequirement([getTaskElement("Muscle memory")], [{task: "Concentration", requirement: 30}, {task: "Strength", requirement: 30}]),
 
     //Science
-    "Language": new TaskRequirement([getTaskElement("Science")], [{task: "Concentration", requirement: 20}]),
+    "Language": new TaskRequirement([getTaskElement("Language")], [{task: "Concentration", requirement: 20}]),
     "Math": new TaskRequirement([getTaskElement("Math")], [{task: "Concentration", requirement: 50}, {task: "Language", requirement: 20}]),
 
     //Magic
