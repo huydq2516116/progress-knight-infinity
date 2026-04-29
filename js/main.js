@@ -67,6 +67,10 @@ const skillBaseData = {
     "Battle tactics": {name: "Battle tactics", maxXp: 100, effect: 0.01, description: "Military xp"},
     "Muscle memory": {name: "Muscle memory", maxXp: 100, effect: 0.01, description: "Strength xp"},
 
+    
+    "Language": {name: "Language", maxXp: 100, effect: 0.01, description: "T.A.A. xp"},
+    "Math": {name: "Math", maxXp: 100, effect: 0.01, description: "Science xp"},
+
     "Mana control": {name: "Mana control", maxXp: 100, effect: 0.01, description: "T.A.A. xp"},
     "Immortality": {name: "Immortality", maxXp: 100, effect: 0.01, description: "Longer lifespan"},
     "Time warping": {name: "Time warping", maxXp: 100, effect: 0.01, description: "Gamespeed"},
@@ -110,6 +114,7 @@ const jobCategories = {
 const skillCategories = {
     "Fundamentals": ["Concentration", "Productivity", "Bargaining", "Meditation"],
     "Combat": ["Strength", "Battle tactics", "Muscle memory"],
+    "Science": ["Language", "Math"],
     "Magic": ["Mana control", "Immortality", "Time warping", "Super immortality"],
     "Dark magic": ["Dark influence", "Evil control", "Intimidation", "Demon training", "Blood meditation", "Demon's wealth"]
 }
@@ -126,6 +131,7 @@ const headerRowColors = {
     "Fundamentals": "#4a4e69",
     "Combat": "#ff704d",
     "Magic": "#875F9A",
+    "Science" : "#2100a5",
     "Dark magic": "#73000f",
     "Properties": "#219ebc",
     "Misc": "#b56576",
@@ -163,6 +169,9 @@ const tooltips = {
     "Strength": "Condition your body and strength through harsh training. Stronger individuals are paid more in the military.",
     "Battle tactics": "Create and revise battle strategies, improving experience gained in the military.",
     "Muscle memory": "Strengthen your neurons through habit and repetition, improving strength gains throughout the body.",
+    
+    "Language": "Learning some writing lessons",
+    "Math": "Learning some math to solve science problems",
 
     "Mana control": "Strengthen your mana channels throughout your body, aiding you in becoming a more powerful magical user.",
     "Immortality": "Lengthen your lifespan through the means of magic. However, is this truly the immortality you have tried seeking for...?",
@@ -248,8 +257,11 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedItemEffect("Sapphire charm"))
         } else if (jobCategories["The Arcane Association"].includes(task.name)) {
             task.xpMultipliers.push(getBindedTaskEffect("Mana control"))
+            task.xpMultipliers.push(getBindedTaskEffect("Language"))
         } else if (skillCategories["Dark magic"].includes(task.name)) {
             task.xpMultipliers.push(getEvil)
+        } else if (skillCategories["Science"].includes(task.name)){
+            task.xpMultipliers.push(getBindedTaskEffect("Math"));
         }
     }
 
@@ -1103,6 +1115,10 @@ gameData.requirements = {
     "Strength": new TaskRequirement([getTaskElement("Strength")], []),
     "Battle tactics": new TaskRequirement([getTaskElement("Battle tactics")], [{task: "Concentration", requirement: 20}]),
     "Muscle memory": new TaskRequirement([getTaskElement("Muscle memory")], [{task: "Concentration", requirement: 30}, {task: "Strength", requirement: 30}]),
+
+    //Science
+    "Language": new TaskRequirement([getTaskElement("Science")], [{task: "Concentration", requirement: 20}]),
+    "Math": new TaskRequirement([getTaskElement("Math")], [{task: "Concentration", requirement: 50}, {task: "Language", requirement: 20}]),
 
     //Magic
     "Mana control": new TaskRequirement([getTaskElement("Mana control")], [{task: "Concentration", requirement: 200}, {task: "Meditation", requirement: 200}]),
