@@ -70,8 +70,9 @@ const skillBaseData = {
     "Writing": {name: "Writing", maxXp: 100, effect: 0.01, description: "T.A.A. xp"},
     "Math": {name: "Math", maxXp: 100, effect: 0.01, description: "Science xp"},
     "Medicine": {name: "Medicine", maxXp: 100, effect: 0.01, description: "Longer lifespan"},
-    "Physics": {name: "Physics", maxXp: 100, effect: 0.01, description: "Job xp"},
     "Chemistry": {name: "Chemistry", maxXp: 100, effect: 0.01, description: "T.A.A. xp"},
+    "Physics": {name: "Physics", maxXp: 100, effect: 0.01, description: "Job xp"},
+    
 
     "Mana control": {name: "Mana control", maxXp: 100, effect: 0.01, description: "T.A.A. xp"},
     "Immortality": {name: "Immortality", maxXp: 100, effect: 0.01, description: "Longer lifespan"},
@@ -116,7 +117,7 @@ const jobCategories = {
 const skillCategories = {
     "Fundamentals": ["Concentration", "Productivity", "Bargaining", "Meditation"],
     "Combat": ["Strength", "Battle tactics", "Muscle memory"],
-    "Science": ["Writing", "Math","Medicine","Physics","Chemistry"],
+    "Science": ["Writing", "Math","Medicine","Chemistry","Physics"],
     "Magic": ["Mana control", "Immortality", "Time warping", "Super immortality"],
     "Dark magic": ["Dark influence", "Evil control", "Intimidation", "Demon training", "Blood meditation", "Demon's wealth"]
 }
@@ -175,8 +176,9 @@ const tooltips = {
     "Writing": "Learning some writing lessons",
     "Math": "Learning some math to solve science problems",
     "Medicine": "Research medicines for better health",
-    "Physics": "The scientific study of matter, its fundamental constituents, its motion and behavior through space and time, and the related entities of energy and force.",
     "Chemistry": "The scientific study of matter's composition, structure, properties, and changes, particularly focusing on atomic interactions and energy transformations",
+    "Physics": "The scientific study of matter, its fundamental constituents, its motion and behavior through space and time, and the related entities of energy and force.",
+    
 
     "Mana control": "Strengthen your mana channels throughout your body, aiding you in becoming a more powerful magical user.",
     "Immortality": "Lengthen your lifespan through the means of magic. However, is this truly the immortality you have tried seeking for...?",
@@ -1113,8 +1115,8 @@ gameData.requirements = {
 
     //The Arcane Association
     "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Concentration", requirement: 200}, {task: "Meditation", requirement: 200}, {task: "Writing", requirement: 50}]),
-    "Apprentice mage": new TaskRequirement([getTaskElement("Apprentice mage")], [{task: "Mana control", requirement: 400}, {task: "Math", requirement: 50}, {task: "Student", requirement: 10}]),
-    "Mage": new TaskRequirement([getTaskElement("Mage")], [{task: "Mana control", requirement: 700}, {task: "Math", requirement: 200}, {task: "Apprentice mage", requirement: 10}]),
+    "Apprentice mage": new TaskRequirement([getTaskElement("Apprentice mage")], [{task: "Mana control", requirement: 400}, {task: "Math", requirement: 300}, {task: "Student", requirement: 10}]),
+    "Mage": new TaskRequirement([getTaskElement("Mage")], [{task: "Mana control", requirement: 700}, {task: "Math", requirement: 500}, {task: "Apprentice mage", requirement: 10}]),
     "Wizard": new TaskRequirement([getTaskElement("Wizard")], [{task: "Mana control", requirement: 1000}, {task: "Mage", requirement: 10}]),
     "Master wizard": new TaskRequirement([getTaskElement("Master wizard")], [{task: "Mana control", requirement: 1500}, {task: "Wizard", requirement: 10}]),
     "Chairman": new TaskRequirement([getTaskElement("Chairman")], [{task: "Mana control", requirement: 2000}, {task: "Master wizard", requirement: 10}]),
@@ -1132,10 +1134,11 @@ gameData.requirements = {
 
     //Science
     "Writing": new TaskRequirement([getTaskElement("Writing")], [{task: "Concentration", requirement: 200}]),
-    "Math": new TaskRequirement([getTaskElement("Math")], [{task: "Concentration", requirement: 250}, {task: "Writing", requirement: 100}]),
+    "Math": new TaskRequirement([getTaskElement("Math")], [{task: "Concentration", requirement: 250}, {task: "Writing", requirement: 200}]),
     "Medicine": new TaskRequirement([getTaskElement("Medicine")], [{task: "Concentration", requirement: 300}, {task: "Math", requirement: 200}]),
-    "Physics": new TaskRequirement([getTaskElement("Physics")], [{task: "Concentration", requirement: 300}, {task: "Math", requirement: 200}]),
-    "Chemistry": new TaskRequirement([getTaskElement("Chemistry")], [{task: "Concentration", requirement: 300}, {task: "Math", requirement: 200}]),
+    "Chemistry": new TaskRequirement([getTaskElement("Chemistry")], [{task: "Concentration", requirement: 400}, {task: "Math", requirement: 500}]),
+    "Physics": new TaskRequirement([getTaskElement("Physics")], [{task: "Concentration", requirement: 500}, {task: "Math", requirement: 800}]),
+    
     
     //Magic
     "Mana control": new TaskRequirement([getTaskElement("Mana control")], [{task: "Concentration", requirement: 200}, {task: "Meditation", requirement: 200}]),
